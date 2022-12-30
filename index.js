@@ -27,7 +27,7 @@ connectDb();
 
 // all router
 app.get('/', (req, res) => {
-  res.send(`app running on ${process.env.PORT}`);
+  res.send(`app running on^ ${process.env.PORT}`);
 });
 
 app.use('/user', userHandler);
