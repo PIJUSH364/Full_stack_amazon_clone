@@ -14,16 +14,16 @@ app.use(cors());
 connectDb();
 
 // serving the frontEnd
-app.use(express.static(path.join(__dirname, './client/build')));
+// app.use(express.static(path.join(__dirname, './client/build')));
 
-app.get('*', function (_, res) {
-  res.sendFile(
-    path.join(__dirname, './client/build/index.html'),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
+// app.get('*', function (_, res) {
+//   res.sendFile(
+//     path.join(__dirname, './client/build/index.html'),
+//     function (err) {
+//       res.status(500).send(err);
+//     }
+//   );
+// });
 
 // all router
 app.get('/', (req, res) => {
