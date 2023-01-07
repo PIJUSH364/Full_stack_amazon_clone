@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const userSchema = require('../schema/userSchema');
 const bcrypt = require('bcrypt');
-require('dotenv').config();
 const jsonwebtoken = require('jsonwebtoken');
+require('dotenv').config();
+
+const userSchema = require('../schema/userSchema');
 const User = new mongoose.model('User', userSchema);
+
 const router = express.Router();
 
 router.get('/', (req, res) => {

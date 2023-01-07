@@ -5,9 +5,11 @@ require('dotenv').config();
 
 const connectDb = require('./config/dbConnect');
 const userHandler = require('./router/userHandler');
+const paymentHandler = require('./router/paymentHandler');
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // connect with dataBase
@@ -32,6 +34,8 @@ app.get('/', (req, res) => {
 
 app.use('/user', userHandler);
 
+app.use('/payment', paymentHandler);
+
 // default error handler...
 const errorHandler = (err, req, res, next) => {
   if (res.headersSent) {
@@ -40,6 +44,7 @@ const errorHandler = (err, req, res, next) => {
   res.status(500).json({ error: err });
 };
 app.use(errorHandler);
+
 
 app.listen(process.env.PORT, () =>
   console.log(`app listen port ${process.env.PORT}`)
