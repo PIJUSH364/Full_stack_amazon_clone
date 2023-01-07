@@ -32,8 +32,10 @@ app.get('/', (req, res) => {
   res.send(`app running on^ ${process.env.PORT}`);
 });
 
+// user authoritarian
 app.use('/user', userHandler);
 
+// payment gateWay integration
 app.use('/payment', paymentHandler);
 
 // default error handler...
